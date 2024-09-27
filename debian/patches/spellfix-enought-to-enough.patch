@@ -1,0 +1,80 @@
+From 0c3a6372eb1e0dda934625e14ee906373eba4ed6 Mon Sep 17 00:00:00 2001
+From: Elimar Riesebieter <riesebie@lxtec.de>
+Date: Thu, 12 Jan 2017 20:40:44 +0100
+Subject: [PATCH] Spellfix enought to enough
+
+Files:
+ld10k1/include/ld10k1_error.h
+ld10k1/src/liblo10k1.c
+---
+ ld10k1/include/ld10k1_error.h | 16 ++++++++--------
+ ld10k1/src/liblo10k1.c        | 16 ++++++++--------
+ 2 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/ld10k1/include/ld10k1_error.h b/ld10k1/include/ld10k1_error.h
+index a36ba78..1529f27 100644
+--- a/ld10k1/include/ld10k1_error.h
++++ b/ld10k1/include/ld10k1_error.h
+@@ -47,19 +47,19 @@
+ #define LD10K1_ERR_DRIVER_PCM_POKE -19 /* unable to poke pcm */
+ 
+ /* tram */
+-#define LD10K1_ERR_ITRAM_FULL -20 /* not enought free itram */
+-#define LD10K1_ERR_ETRAM_FULL -21 /* not enought free etram */
+-#define LD10K1_ERR_TRAM_FULL -22 /* not enought free tram */
+-#define LD10K1_ERR_TRAM_FULL_GRP -23 /* not enought free tram group */
++#define LD10K1_ERR_ITRAM_FULL -20 /* not enough free itram */
++#define LD10K1_ERR_ETRAM_FULL -21 /* not enough free etram */
++#define LD10K1_ERR_TRAM_FULL -22 /* not enough free tram */
++#define LD10K1_ERR_TRAM_FULL_GRP -23 /* not enough free tram group */
+ 
+-#define LD10K1_ERR_ITRAM_FULL_ACC -25 /* not enought free itram acc */
+-#define LD10K1_ERR_ETRAM_FULL_ACC -26 /* not enought free etram acc */
+-#define LD10K1_ERR_TRAM_FULL_ACC -27 /* not enought free tram acc */
++#define LD10K1_ERR_ITRAM_FULL_ACC -25 /* not enough free itram acc */
++#define LD10K1_ERR_ETRAM_FULL_ACC -26 /* not enough free etram acc */
++#define LD10K1_ERR_TRAM_FULL_ACC -27 /* not enough free tram acc */
+ 
+ #define LD10K1_ERR_MAX_CON_PER_POINT -28 /* maximum connections per point reached */
+ 
+ /* others */
+-#define LD10K1_ERR_NO_MEM -30 /* not enought free mem */
++#define LD10K1_ERR_NO_MEM -30 /* not enough free mem */
+ #define LD10K1_ERR_MAX_PATCH_COUNT -31 /* max patch count excesed */
+ #define LD10K1_ERR_NOT_FREE_REG -32 /* there is not free reg */
+ #define LD10K1_ERR_NOT_FREE_INSTR -34 /* there is no free instruction slot */
+diff --git a/ld10k1/src/liblo10k1.c b/ld10k1/src/liblo10k1.c
+index 8861876..816cb11 100644
+--- a/ld10k1/src/liblo10k1.c
++++ b/ld10k1/src/liblo10k1.c
+@@ -1079,19 +1079,19 @@ struct errmsg_t error_text[] =
+ 	{LD10K1_ERR_DRIVER_PCM_POKE, "Unable to poke pcm"},
+ 
+ /* tram */
+-	{LD10K1_ERR_ITRAM_FULL, "Not enought free itram"},
+-	{LD10K1_ERR_ETRAM_FULL, "Not enought free etram"},
+-	{LD10K1_ERR_TRAM_FULL, "Not enought free tram"},
+-	{LD10K1_ERR_TRAM_FULL_GRP, "Not enought free tram group"},
++	{LD10K1_ERR_ITRAM_FULL, "Not enough free itram"},
++	{LD10K1_ERR_ETRAM_FULL, "Not enough free etram"},
++	{LD10K1_ERR_TRAM_FULL, "Not enough free tram"},
++	{LD10K1_ERR_TRAM_FULL_GRP, "Not enough free tram group"},
+ 
+-	{LD10K1_ERR_ITRAM_FULL_ACC, "Not enought free itram acc"},
+-	{LD10K1_ERR_ETRAM_FULL_ACC, "Not enought free etram acc"},
+-	{LD10K1_ERR_TRAM_FULL_ACC, "Not enought free tram acc"},
++	{LD10K1_ERR_ITRAM_FULL_ACC, "Not enough free itram acc"},
++	{LD10K1_ERR_ETRAM_FULL_ACC, "Not enough free etram acc"},
++	{LD10K1_ERR_TRAM_FULL_ACC, "Not enough free tram acc"},
+ 
+ 	{LD10K1_ERR_MAX_CON_PER_POINT, "Maximum connections per point reached"},
+ 
+ /* others */
+-	{LD10K1_ERR_NO_MEM, "Not enought free mem"},
++	{LD10K1_ERR_NO_MEM, "Not enough free mem"},
+ 	{LD10K1_ERR_MAX_PATCH_COUNT, "Max patch count excesed"},
+ 	{LD10K1_ERR_NOT_FREE_REG, "There is not free reg"},
+ 	{LD10K1_ERR_NOT_FREE_INSTR, "There is no free instruction slot"},
+-- 
+2.11.0
+

@@ -1,15 +1,93 @@
-Source: template-repository
-Section: unknown
+Source: alsa-tools
+Section: sound
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian ALSA Maintainers <pkg-alsa-devel@lists.alioth.debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>,
+           Elimar Riesebieter <riesebie@lxtec.de>,
+           Luke Yelavich <themuso@ubuntu.com>
+Build-Depends: debhelper-compat (= 13),
+               dpkg-dev (>= 1.16.1~),
+               libasound2-dev (>= 1.0.24.1),
+               libfltk1.3-dev,
+               libgtk-3-dev,
+               libgtk2.0-dev,
+               pkgconf,
+               systemd-dev,
+Standards-Version: 4.6.0
+Homepage: https://www.alsa-project.org/
+Vcs-Git: https://salsa.debian.org/alsa-team/alsa-tools.git
+Vcs-Browser: https://salsa.debian.org/alsa-team/alsa-tools
+Rules-Requires-Root: no
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: alsa-tools
+Architecture: linux-any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Provides: as10k1
+Conflicts: as10k1
+Replaces: as10k1
+Description: Console based ALSA utilities for specific hardware
+ A collection of console-based utilities for specific sound hardware:
+ .
+  as10k1 - An assembler for the EMU10K1 (EMU10K2) DSP chip
+  hda-verb - send HD-audio commands to Intel HDA devices
+  sbiload - OPL2/3 FM instrument loader for the ALSA sequencer
+  us428control - Controller utility for Tascam US-X2Y
+
+Package: alsa-tools-gui
+Architecture: linux-any
+Depends: ${misc:Depends}, ${shlibs:Depends}, pkexec
+Description: GUI based ALSA utilities for specific hardware
+ A collection of GUI based ALSA utilities for specific sound hardware:
+ .
+  echomixer - control tool for Echoaudio soundcards
+  envy24control - control tool for Envy24 (ice1712) based soundcards
+  hdajackretask - retask jacks on HDA Intel hardware
+  hdspconf - GUI program to control the Hammerfall HDSP Alsa Settings.
+  hdspmixer - tool to control the advanced routing features of the
+              RME Hammerfall DSP.
+  rmedigicontrol - control tool for RME Digi32 and RME Digi96 soundcards
+
+Package: alsa-firmware-loaders
+Section: contrib/sound
+Architecture: linux-any
+Depends: fxload, udev, ${misc:Depends}, ${shlibs:Depends}
+Description: ALSA software loaders for specific hardware
+ A collection of software loaders for specific hardware:
+ .
+  cspctl - Sound Blaster 16 ASP/CSP control program
+  hdsploader - firmware loader for the RME Hammerfall DSP cards
+  mixartloader - firmware loader for Digigram's miXart board sound drivers
+  pcxhrloader - firmware loader for Digigram pcxhr compatible soundcards
+  sscape_ctl - SoundScape control utility and firmware loader
+  usx2yloader - firmware loader for Tascam USX2Y USB soundcards
+  vxloader - firmware loader for Digigram VX soundcards
+
+Package: ld10k1
+Architecture: linux-any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: lsb-base (>= 3.0-3), ${misc:Depends}, ${shlibs:Depends}
+Suggests: alsa-tools
+Description: ALSA emu10k1/2 patch loader
+ A patch loader for use with the emu10k1 ALSA driver.  Supports Sound
+ Blaster Live!, Audigy and Audigy 2. It includes:
+  ld10k1 - server to store the driver state
+  lo10k1 - control tool for the server
+  dl10k1 - dump loader
+
+Package: liblo10k1-0
+Section: libs
+Architecture: linux-any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: ALSA emu10k1/2 patch-loader library
+ This is the runtime library for the ld10k1 patch loader for use with
+ the emu10k1 ALSA driver.  Supports Sound Blaster Live!, Audigy and
+ Audigy 2.
+
+Package: liblo10k1-dev
+Section: libdevel
+Architecture: linux-any
+Depends: libasound2-dev, liblo10k1-0 (= ${binary:Version}), ${misc:Depends}
+Description: ALSA emu10k1/2 patch-loader library development files
+ These are the development files for the ld10k1 patch loader for use with
+ the emu10k1 ALSA driver.  Supports Sound Blaster Live!, Audigy and
+ Audigy 2.

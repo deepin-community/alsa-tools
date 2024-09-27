@@ -1,0 +1,18 @@
+###############################################################################
+# Description:   udev rule to load TASCAM US-122 usb sound card.
+# Created:       Wed, 12 Sep 2007 17:05:25 +0200
+# Last modified: Sun, 17 Dec 2023 01:35:53 +0100
+# File:          /etc/udev/alsa-firmware-loaders.rules
+###############################################################################
+
+# TASCAM US-428 usb sound card.
+    SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="1604", ATTR{idProduct}=="8000", RUN+="tascam_fw"
+# TASCAM US-224 usb sound card.
+    SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="1604", ATTR{idProduct}=="8004", RUN+="tascam_fw"
+# TASCAM US-112 usb sound card.
+    SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="1604", ATTR{idProduct}=="8006", RUN+="tascam_fw"
+
+    SUBSYSTEM=="usb", ACTION=="add", ATTR{id}=="USX2Y", RUN+="tascam_fpga"
+
+# vim:tw=160:syntax=udevrules
+

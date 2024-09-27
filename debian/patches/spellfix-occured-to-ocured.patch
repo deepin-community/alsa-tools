@@ -1,0 +1,25 @@
+From ec40ba305dc5affb4215fc127b79cd95d666208d Mon Sep 17 00:00:00 2001
+From: Elimar Riesebieter <riesebie@lxtec.de>
+Date: Thu, 12 Jan 2017 20:52:12 +0100
+Subject: [PATCH] spellfix occured to ocured
+
+---
+ as10k1/as10k1.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/as10k1/as10k1.c b/as10k1/as10k1.c
+index 96af0c3..48386d4 100644
+--- a/as10k1/as10k1.c
++++ b/as10k1/as10k1.c
+@@ -266,7 +266,7 @@ void asm_open(char *name)
+         } 
+         //get it's stats
+         if ( -1 ==  fstat( fd, &st)){
+-                printf("Error occured attempting to stat %s\n", name);
++                printf("Error ocured attempting to stat %s\n", name);
+                 as_exit("");
+         }
+         
+-- 
+2.11.0
+

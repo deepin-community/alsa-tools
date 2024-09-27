@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component>
+  <id>org.alsa-project.alsa-firmware-loaders</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>alsa-firmware-loaders</name>
+  <summary>Load required firmware for specific sound hardware</summary>
+  <description>
+    <p>
+      ALSA firmware loaders is a collection of programs required to initialize
+      some specific sound hardware and associated controlling software.
+      It includes loaders for the following:
+    </p>
+    <ul>
+      <li>Sound Blaster 16 ASP/CSP control program</li>
+      <li>RME Hammerfall DSP soundcards firmware loader</li>
+      <li>Digigram miXart soundcards firmware loader</li>
+      <li>Digigram pcxhr soundcards firmware loader</li>
+      <li>Digigram VX soundcards firmware loader</li>
+      <li>SoundScape soundcards control utility and firmware loader</li>
+      <li>Tascam USX2Y soundcards firmware loader</li>
+    </ul>
+  </description>
+  <provides>
+    <modalias>usb:v1604p8000d*</modalias>
+    <modalias>usb:v1604p8001d*</modalias>
+    <modalias>usb:v1604p8004d*</modalias>
+    <modalias>usb:v1604p8005d*</modalias>
+    <modalias>usb:v1604p8006d*</modalias>
+    <modalias>usb:v1604p8007d*</modalias>
+  </provides>
+  <update_contact>jordi@debian.org</update_contact>
+</component>

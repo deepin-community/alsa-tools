@@ -1,0 +1,32 @@
+Author: Elimar Riesebieter <riesebie@lxtec.de>
+Description: Avoid installing unnecessary files
+Last-Update: 2023-12-17
+
+Index: alsa-tools/usx2yloader/Makefile.am
+===================================================================
+--- alsa-tools.orig/usx2yloader/Makefile.am
++++ alsa-tools/usx2yloader/Makefile.am
+@@ -11,8 +11,8 @@ usx2yloader_SOURCES = usx2yloader.c
+ 
+ EXTRA_DIST = gitcompile depcomp tascam_fw.usermap tascam_fw.in tascam_fpga.in
+ 
+-hotplug_files = tascam_fw.usermap tascam_fw tascam_fpga
++hotplug_files = tascam_fw tascam_fpga
+ hotplugdir = /etc/hotplug/usb
+ hotplug_SCRIPTS = $(hotplug_files)
+ 
+ 
+Index: alsa-tools/usx2yloader/Makefile.in
+===================================================================
+--- alsa-tools.orig/usx2yloader/Makefile.in
++++ alsa-tools/usx2yloader/Makefile.in
+@@ -309,8 +309,8 @@ MYNAME = usx2yloader
+ AM_CFLAGS = -DDATAPATH=\"$(datadir)/alsa/firmware/$(MYNAME)\"
+ usx2yloader_SOURCES = usx2yloader.c
+ EXTRA_DIST = gitcompile depcomp tascam_fw.usermap tascam_fw.in tascam_fpga.in
+-hotplug_files = tascam_fw.usermap tascam_fw tascam_fpga
++hotplug_files = tascam_fw tascam_fpga
+ hotplugdir = /etc/hotplug/usb
+ hotplug_SCRIPTS = $(hotplug_files)
+ all: all-am
+ 

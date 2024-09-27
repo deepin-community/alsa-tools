@@ -1,0 +1,113 @@
+Description: .desktop files improvements
+Origin: LibraZiK
+Forwarded: yes
+Author: Olivier Humbert <trebmuh@tuxfamily.org>
+Reviewed-by:
+Last-Update: 2019-09-27
+
+Index: alsa-tools/echomixer/desktop/echomixer.desktop
+===================================================================
+--- alsa-tools.orig/echomixer/desktop/echomixer.desktop
++++ alsa-tools/echomixer/desktop/echomixer.desktop
+@@ -1,10 +1,13 @@
+ [Desktop Entry]
+ Name=Echomixer
+ GenericName=Control Echo Digital Audio sound cards
++GenericName[fr]=Contrôler les cartes son Echo Digital Audio
+ Comment=Mixer and GUI control utility for Echo Digital Audio sound cards
++Comment=Utilitaire de contrôle et mixeur graphique pour les cartes son Echo Digital Audio
+ Exec=echomixer
+ Icon=echomixer
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
+ Version=0.9.4
++Keywords=Audio;Mixer;Echoaudio
+Index: alsa-tools/envy24control/desktop/envy24control.desktop
+===================================================================
+--- alsa-tools.orig/envy24control/desktop/envy24control.desktop
++++ alsa-tools/envy24control/desktop/envy24control.desktop
+@@ -1,10 +1,13 @@
+ [Desktop Entry]
+ Name=Envy24 Control
+ GenericName=Envy24 Control Utility
++GenericName[fr]=Utilitaire Envy24 Control
+ Comment=Mixer and GUI control utility for Envy24-based sound cards
++Comment=Utilitaire de contrôle et mixeur graphique pour les cartes son basées sur Envy24
+ Exec=envy24control
+ Icon=envy24control
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
+ Version=0.9.4
++Keywords=Audio;Control;Envy24
+Index: alsa-tools/hdajackretask/desktop/hdajackretask.desktop
+===================================================================
+--- alsa-tools.orig/hdajackretask/desktop/hdajackretask.desktop
++++ alsa-tools/hdajackretask/desktop/hdajackretask.desktop
+@@ -1,8 +1,11 @@
+ [Desktop Entry]
+ Name=HDAJackRetask
+-GenericName=Retask the audio jacks for the HDA sound driver
++Comment=Retask the audio jacks for the HDA sound driver
++Comment[fr]=Réassignement des jacks audio pour le pilote audio HDA
+ Exec=hdajackretask
++Icon=hdajackretask
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
+ Version=0.9.4
++Keywords=Audio;IntelHDA;Jacks
+Index: alsa-tools/hdspconf/desktop/hdspconf.desktop
+===================================================================
+--- alsa-tools.orig/hdspconf/desktop/hdspconf.desktop
++++ alsa-tools/hdspconf/desktop/hdspconf.desktop
+@@ -1,8 +1,10 @@
+ [Desktop Entry]
+ Name=HDSPConf
+ Comment=Hammerfall DSP control application
++Comment[fr]=Application de contrôle des Hammerfall DSP
+ Exec=hdspconf
+ Icon=hdspconf
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
++Keywords=Audio;Hammerfall;HDSP
+Index: alsa-tools/hdspmixer/desktop/hdspmixer.desktop
+===================================================================
+--- alsa-tools.orig/hdspmixer/desktop/hdspmixer.desktop
++++ alsa-tools/hdspmixer/desktop/hdspmixer.desktop
+@@ -1,8 +1,10 @@
+ [Desktop Entry]
+ Name=HDSPMixer
+ Comment=Hammerfall DSP matrix mixer control GUI
++Comment[fr]=Interface graphique de contrôle du mixeur matriciel des Hammerfall DSP
+ Exec=hdspmixer
+ Icon=hdspmixer
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
++Keywords=Audio;Hammerfall;Routing
+Index: alsa-tools/hwmixvolume/desktop/hwmixvolume.desktop
+===================================================================
+--- alsa-tools.orig/hwmixvolume/desktop/hwmixvolume.desktop
++++ alsa-tools/hwmixvolume/desktop/hwmixvolume.desktop
+@@ -1,9 +1,11 @@
+ [Desktop Entry]
+ Name=Hwmixvolume
+-GenericName=Control the volume of individual streams on sound cards that use hardware mixing
++Comment=Control the volume of individual streams on sound cards that use hardware mixing
++Comment[fr]=Contrôler le volume des flux individuels sur les cartes son qui utilisent le mixage matériel
+ Exec=hwmixvolume
+ Icon=hwmixvolume
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;Audio;
+ Version=0.9.4
++Keywords=Audio;Mixer

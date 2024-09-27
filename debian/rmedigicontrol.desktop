@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Rmedigicontrol
+GenericName=
+Comment=Control RME Digi32 and RME Digi96 soundcards
+Comment[ca]=Controleu les targetes de so RME Digi32 i RME Digi96
+Comment[fr]=Contrôles pour interfaces audio RME Digi32 et RME Digi96
+Keywords=Audio;RMEDigi;Control
+Icon=alsa-tools
+Exec=rmedigicontrol
+Terminal=false
+Categories=AudioVideo;Audio;

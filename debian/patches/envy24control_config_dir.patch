@@ -1,0 +1,33 @@
+Author: Navid Zamani <navid.zamani@googlemail.com>
+Description: Move envy24control profile to a dotdir.
+ envy24control would create a visible config directory in the user's
+ home upon execution. Change the config dir to use a dotdir instead.
+Bug-Gentoo: https://bugs.gentoo.org/show_bug.cgi?id=273129
+Forwarded: no
+
+Index: alsa-tools-1.0.28/envy24control/envy24control.h
+===================================================================
+--- alsa-tools-1.0.28.orig/envy24control/envy24control.h
++++ alsa-tools-1.0.28/envy24control/envy24control.h
+@@ -15,7 +15,7 @@
+ #endif
+ #define MAX_PROFILES 8
+ #define MAX_PROFILE_NAME_LENGTH 20
+-#define DEFAULT_PROFILERC "~/envy24control/profiles.conf"
++#define DEFAULT_PROFILERC "~/.envy24control/profiles.conf"
+ #define SYS_PROFILERC "/etc/envy24control/profiles.conf"
+ #ifndef MKDIR
+ #define MKDIR "/bin/mkdir"
+Index: alsa-tools-1.0.28/envy24control/profiles.h
+===================================================================
+--- alsa-tools-1.0.28.orig/envy24control/profiles.h
++++ alsa-tools-1.0.28/envy24control/profiles.h
+@@ -23,7 +23,7 @@
+ #endif
+ 
+ #ifndef DEFAULT_PROFILERC
+-#define DEFAULT_PROFILERC "~/"PROGRAM_NAME"/profiles.conf"
++#define DEFAULT_PROFILERC "~/."PROGRAM_NAME"/profiles.conf"
+ #endif
+ 
+ #ifndef SYS_PROFILERC

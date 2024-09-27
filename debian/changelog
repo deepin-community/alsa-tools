@@ -1,5 +1,719 @@
-template-repository (1.0-1) unstable; urgency=medium
+alsa-tools (1.2.11-1.1) unstable; urgency=medium
 
-  * Initial release
+  * Non-maintainer upload.
+  * Use udev.pc to place udev files. (Closes: #1058857)
+  * Avoid hard-coding path to udev helpers in udev rules, as it will
+    change.
+  * Update firmware path to /usr/lib/firmware.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Chris Hofstaedtler <zeha@debian.org>  Thu, 30 May 2024 01:58:32 +0200
+
+alsa-tools (1.2.11-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update watch and copyright files for new https-based download URL.
+  * Update copyright years.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 04 Mar 2024 23:13:35 +0100
+
+alsa-tools (1.2.5-3) unstable; urgency=medium
+
+  * Drop changelog.ALSA.
+  * Drop obsolete debian/NOTES.
+  * Import upstream signing key and configure watch file to check for
+    sigs.
+  * Add pkexec to alsa-tools-gui's Depends (closes: #1035104).
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 05 May 2023 00:35:19 +0200
+
+alsa-tools (1.2.5-2) unstable; urgency=medium
+
+  * Install AppStream metadata in /usr/share/metainfo.
+  * Move priority of all binary packages to optional.
+  * Detail license for metainfo data in debian/copyright.
+  * Move watch file to version 4.
+  * Bump debhelper compat to v13 and declare it via debhelper-compat.
+  * Set Rules-Requires-Root to no.
+  * Add upstream metadata.
+  * Update Standards-Version to 4.6.0.
+  * Pass -a instead of -s to dh_installdirs.
+  * Use dh_missing --list-missing.
+  * Add Pre-Depends: ${misc:Pre-Depends} to ld10k1.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 09 Sep 2021 02:28:58 +0200
+
+alsa-tools (1.2.5-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Refresh patches.
+  * Modify udev rule for alsa-firmware-loaders to run tascam_fpga based
+    on a ATTR{id} match, as reported and tested by Jaime T (closes: #844501).
+  * Switch to FLTK 1.3, Build-Depend on libfltk1.3-dev (closes: #974624).
+  * Add completely untested AppStream metainfo for the Tascam sound cards
+    firmware loaders. Thanks Petter Reinholdsten for the suggestion
+    (closes: #838154).
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 09 Sep 2021 01:18:48 +0200
+
+alsa-tools (1.2.2-1) unstable; urgency=medium
+
+  * New upstream release.
+    - hdspmixer: Use __u32 and __u64 for RMS array types (closes: #951931)
+  * Apply patches from Vagrant Cascadiant to fix reproducibility issues with
+    the emu10k1MIDIEffects example Makefile:
+    - strip instances of build path out of example Makefile (closes: #949114).
+    - set GREP, MKDIR_P, SED and SHELL from ./configure, to prevent
+      variations when built on a system with merged /usr (closes: #949115).
+  * Run dh_update_autotools_config before running configure (closes: #894189).
+  * Merge MR !2 from Olivier Humbert to improve alsa-tools-gui desktop
+    integration, by replacing our .desktop files by the upstream-provided
+    ones, and applying several improvements (closes: #896471).
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 21 Apr 2020 01:48:04 +0200
+
+alsa-tools (1.1.7-1) unstable; urgency=medium
+
+  [ Jordi Mallach ]
+  * Update Vcs-* fields to reflect conversion to Git and move to
+    salsa.d.o.
+  * Add debian/gbp.conf with current git repo layout options.
+  * Drop clang-ftbfs.patch: obsolete.
+
+  [ Elimar Riesebieter ]
+  * New upstream release.
+  * Bump Standards-Version to 4.3.0.
+  * Bump Build-Depends: libasound2-dev (>= 1.1.8).
+
+  [ Jordi Mallach ]
+  * Revert "Bump Build-Depends: libasound2-dev (>= 1.1.8)", there's no need.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 13 Feb 2019 12:18:19 +0100
+
+alsa-tools (1.1.3-1) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * New upstream release.
+  * Bumped debhelper compatibility level to 10.
+  * Changed debian/compat accordingly.
+  * Remove --with autoreconf from calls to dh.
+    With Debhelper compat level 10 the autoreconf sequence is enabled by
+    default.
+  * Added Keywords to .desktop files.
+  * Introduced lintian-overrides. Lintian complains no hardening although
+    hardeining=+all is set in debian/rules.
+  * Dropped gcc6-narrowing-error.patch. Applied upstream.
+  * Updated changelog.ALSA.
+  * Formatted debian/copyright as DEP5.
+  * Bump Standards-Version to 3.9.8.
+  * Introduced spellfix-enought-to-enough.patch and
+    spellfix-occured-to-ocured.patch.
+
+  [ Jordi Mallach ]
+  * Use HTTPS in Homepage and copyright-format URLs.
+  * Add detailed copyright information for all tools.
+  * Remove individual, per-package obsolete copyright files.
+  * Remove lintian-overrides, this needs to be fixed in the upstream
+    build-system, not be overridden.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 23 Jan 2017 02:05:35 +0100
+
+alsa-tools (1.1.0-2) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * Cherry picked  gcc6-narrowing-error.patch from git to prevent a FTBFS on
+    architecture armel. (closes: 837590)
+
+  [ Jordi Mallach ]
+  * Add Catalan translation to desktop files.
+  * Enable hardening build options.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 20 Sep 2016 11:45:12 +0200
+
+alsa-tools (1.1.0-1) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * Add French localisation to the 6 .desktop files. Thanks to Olivier Humbert.
+    (closes: #798052)
+
+  [ Luke Yelavich ]
+  * New upstream release
+  * Update changelog.ALSA
+
+  [ David Henningsson ]
+  * Ship hdajacksensetest
+
+  [ Jordi Mallach ]
+  * Use https for Vcs-Browser.
+  * Remove Debian menu entries for alsa-tools-gui.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 02 Feb 2016 00:37:14 +0100
+
+alsa-tools (1.0.29-1) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * Fix FTBFS with clang
+    - Fixed undefined undefined reference error in as10k1/as10k1.c. Thanks to
+      Arthur Marble (closes: #756805)
+
+  [ Luke Yelavich ]
+  * New upstream release
+  * Update changelog.ALSA
+
+  [ Jordi Mallach ]
+  * Bump Standards-Version to 3.9.6.
+  * Add Luke Yelavich to Uploaders.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 22 Jul 2015 10:06:36 +0200
+
+alsa-tools (1.0.28-1) unstable; urgency=medium
+
+  [ Luke Yelavich ]
+  * New upstream release
+  * Dropped patches, applied upstream:
+    - as10k1_examples_Makefile.patch
+    - init_live_bashismfix.patch
+    - ld10k1_format-security.patch
+    - manpage_spelling.patch
+    - hda-verb_sys_io_h.patch
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 18 Jul 2014 21:05:17 +0200
+
+alsa-tools (1.0.27-3) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * Use dh-autoreconf to fix FTBFS on ppc64el. Applied a patch from Ubuntu.
+    Thanks to Logan Rosen for the hint. (closes: #736390)
+  * Fix FTBFS on arm64. Extend hda-verb_sys_io_h.patch. Thanks to Adam Conrad.
+    (closes: #743017)
+  * Bump Standards-Version to 3.9.5 (no changes).
+
+  [ Jordi Mallach ]
+  * Bump to debhelper compat v9.
+  * Add debian/autoreconf with an explicit list of directories to process,
+    otherwise dh-autoreconf fails miserably.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 15 Apr 2014 01:29:03 +0200
+
+alsa-tools (1.0.27-2) unstable; urgency=low
+
+  * hda-verb_sys_io_h.patch: Duh. Use ANDs, not ORs when testing
+    architecture compiler macros.
+  * Upload to unstable.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 09 May 2013 13:06:03 +0200
+
+alsa-tools (1.0.27-1) experimental; urgency=low
+
+  * New upstream release.
+  * Drop ac3dec_cflags.patch: ac3dec has been removed from alsa-tools.
+  * Update various packaging bits to adapt for the removal of ac3dec.
+  * Add hda-verb_sys_io_h.patch: restrict include of sys/io.h for all
+    architectures other than those based on x86, ARM, ALPHA or IA64.
+  * Add envy24control_config_dir.patch: stolen from the Gentoo folks;
+    envy24control would create a non-dot config directory in the user's
+    home upon execution. Change the config dir to use a dotdir instead.
+    Extend the patch as there are two locations for this definition (!).
+  * Use default source package compression.
+  * Don't pass static priorities and runlevels to dh_installinit. This
+    is all managed via the LSB headers in the init script.
+  * Add a symbols file for liblo10k1-0, even if it hasn't seen a single
+    commit since its initial release.
+  * Extend ld10k1's description.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 27 Apr 2013 01:37:47 +0200
+
+alsa-tools (1.0.26.1-1) experimental; urgency=low
+
+  * New upstream release.
+  * Drop usx2yloader_tascam_fw_fix.patch, fixed upstream.
+  * Add hda-verb to alsa-tools and hdajackretask to alsa-tools-gui.
+  * Add libgtk-3-dev to Build-Depends.
+  * Add a hdajackretask.desktop file and add an entry to Debian menu.
+  * Bump Standards-Version to 3.9.4, with no changes needed.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 20 Apr 2013 19:20:33 +0200
+
+alsa-tools (1.0.25-2) unstable; urgency=low
+
+  * Remove qlo10k1 entirely. It's based on Qt3 which is going away for
+    wheezy (closes: #604340).
+  * As a side effect, simplify configure calls by removing obsolete
+    options.
+  * Do not build liblo10k1 with --enable-static and drop .a files from
+    the -dev package.
+  * Bump Standards-Version to 3.9.3, no changes needed.
+  * Remove Mikael Magnusson from Uploaders.
+  * Don't install upstream AUTHORS files, the info is already in copyright.
+  * Use dpkg-buildflags when configuring, to enable hardening flags.
+    Add a build-dependency on dpkg-dev (>= 1.16.1).
+  * Refresh all patches.
+  * Add lo10k1_format-security.patch to fix -Werror=format-security build
+    errors uncovered by the hardening flags now in use.
+  * Add ac3dec_cflags.patch to avoid overwriting CFLAGS.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 19 May 2012 15:48:10 +0200
+
+alsa-tools (1.0.25-1) unstable; urgency=low
+
+  * New upstream release.
+    - changes to hdspmixer should fix crash (closes: #658002).
+    - hdspmixer should now start correctly (closes: #641351).
+  * Update changelog.ALSA.
+  * Avoid bugs like #629911 by guarding for loops with 'set -e'.
+  * Run source package through wrap-and-sort.
+  * Drop hdspmixer_recognize_RME.patch, applied upstream.
+  * Use watch file version 3, and don't uupdate.
+  * Decruft debian/rules a bit.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 12 Feb 2012 12:38:40 +0100
+
+alsa-tools (1.0.24.1-3) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Applied hdspmixer_recognize_RME.patch from git. (closes: #641352)
+  * Modified init_live_bashismfix.patch as told by Joachim Wiedorn,
+    (closes: #644396).
+  * Added build-indep to rules.
+
+  [ Jordi Mallach ]
+  * Update Vcs-* fields to non-redirected URLs.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 17 Oct 2011 17:21:42 +0200
+
+alsa-tools (1.0.24.1-2) unstable; urgency=low
+
+  * Tighten libasound2-dev Build-Depends to >= 1.0.24.1, to avoid a build
+    failure of hdspmixer due to missing new alsa-lib headers
+    (closes: #629911).
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 18 Aug 2011 22:56:11 +0200
+
+alsa-tools (1.0.24.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump debhelper compat to v8. Update .install files to remove the
+    debian/tmp prefix.
+  * Rename alsa-firmware-loaders.rules to .udev and use dh_installudev to
+    install the rules file.
+  * Drop obsolete README.source.
+  * Bump Standards-Version to 3.9.2.
+  * Use $(CURDIR) instead of `pwd`.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 21 Jul 2011 19:16:14 +0200
+
+alsa-tools (1.0.23-5) unstable; urgency=low
+
+  * Switch to architecture wildcard 'linux-any'.
+  * Remove unneeded .la file from liblo10k1-dev (closes: #621151).
+  * Add patch from Simone Rosetto to fix loading of usx2yloader tascam
+    firmware (closes: #620510).
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 07 May 2011 17:44:20 +0200
+
+alsa-tools (1.0.23-4) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Added armhf to the supported archs. (closes: #604651)
+  * Bumped Standards-Version to 3.9.1. No changes
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 18 Apr 2011 19:57:56 +0200
+
+alsa-tools (1.0.23-3) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Removed udev from ld10k1's 'Depends:' and added udev to "# Should-Start:" in
+    ld10k1's initscript. This makes it possible to install ld10k1 on archs and
+    systems without the need to run udev.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 19 Jun 2010 13:39:54 +0200
+
+alsa-tools (1.0.23-2) unstable; urgency=medium
+
+  [ Elimar Riesebieter ]
+  * Added udev to ld10k1's 'Depends:'. Thanks Holger Levsen. (closes: #585889)
+
+  [ Jordi Mallach ]
+  * Add manpage_spelling.patch with fixes to some spelling errors in
+    cspctl.1.
+  * Fix spelling errors in Debian-provided lo10k1.1.
+  * Add DEP-3 patch headers to all patches.
+  * Remove duplicate Section field.
+  * Point to the GPL-2 file in copyright files.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 15 Jun 2010 09:46:01 +0200
+
+alsa-tools (1.0.23-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * ld10k1: Introduced init_live_bashismfix.patch to fix some bashism found by
+    checkbashisms script. Thanks Raphael Geissert. (closes: #581117).
+  * alsa-firmware-loaders: Don't create the symbolic link
+    /etc/udev/rules.d/z55_alsa-firmware-loaders.rules (closes: #583743).
+    alsa-firmware-loaders.postrm isn't needed anymore.
+  * Added dependency on $remote_fs in ld10k1 initscript.
+
+  [ Jordi Mallach ]
+  * Add powerpcspe to the list of supported architectures, and remove
+    lpia, which is no longer being used by Ubuntu.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 02 Jun 2010 21:37:53 +0200
+
+alsa-tools (1.0.22-1) unstable; urgency=low
+
+  * New upstream release.
+    - fixes envy24control when running Linux 2.6.32 (closes: #569275).
+
+  [ Elimar Riesebieter ]
+  * Switched to source version 3.0.
+  * Install alsa-firmware-loaders.rules as
+    /lib/udev/rules.d/alsa-firmware-loaders.rules
+  * Replace SYSFS{}= with ATTR{}= in alsa-firmware-loaders.rules. Thanks Jakob
+    Schuerz (closes: #566124)
+  * Replace BUS== with SUBSYSTEM== in alsa-firmware-loaders.rules.
+
+  [ Jordi Mallach ]
+  * Add sparc64 to the list of supported architectures.
+  * Bump Standards-Version to 3.8.4, with no changes required.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 12 Feb 2010 03:03:54 +0100
+
+alsa-tools (1.0.21-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * Added avr32 to supported archs.
+  * Bumped Standards-Version to 3.8.3. No changes.
+  * Added README.source.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 17 Sep 2009 19:22:37 +0200
+
+alsa-tools (1.0.20-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * Bumped Standard-Version to 3.8.1; no changes needed.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 04 Jun 2009 01:50:55 +0200
+
+alsa-tools (1.0.19-1) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * New upstream release.
+
+  [ Jordi Mallach ]
+  * Add ${misc:Depends} to liblo10k1-dev.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 14 Mar 2009 02:35:57 +0100
+
+alsa-tools (1.0.18-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * Build-Depends bumped to libasound2-dev (>= 1.0.18).
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 07 Nov 2008 13:58:01 +0100
+
+alsa-tools (1.0.17-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * Switched to debhelper 7.
+  * Bumped Standard-Version to 3.8.0; no changes needed.
+  * Added copyright notice to *10k1 packages. Removed homepage in description.
+  * Moved liblo10k1-dev to section libdevel.
+
+  [ Jordi Mallach ]
+  * Merge from Ubuntu:
+    - install an icon for GUI programs.
+    - add firmware_locations.patch to make firmware loaders look in
+      /lib/firmware.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 17 Sep 2008 20:24:07 +0200
+
+alsa-tools (1.0.16-2) unstable; urgency=low
+
+  * Add lpia to the list of supported architectures.
+  * Switch lo10k1.sh to use /bin/bash as it uses "exec -a" (closes: #465002).
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 26 Aug 2008 17:50:06 +0200
+
+alsa-tools (1.0.16-1) unstable; urgency=low
+
+  * New upstream release
+
+  [ Jordi Mallach ]
+  * Switch to now official Vcs-* control fields.
+
+  [ Elimar Riesebieter ]
+  * Switched to debhelper 6.
+  * Bumped Standard-Version to 3.7.3; no changes needed.
+  * Removed hammerfal.patch. Applied from upstream.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 26 Feb 2008 18:18:08 +0100
+
+alsa-tools (1.0.15-2) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Added hammerfall.patch, which fixes initialisation of all HDSP cards
+    with hdspmixer (thanks, Frank Heckenbach). (closes: #450805)
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 14 Nov 2007 01:02:36 +0100
+
+alsa-tools (1.0.15-1) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Reworked debian/rules clean target to build twice in a row.
+    (closes: #442489)
+  * Added patches/as10k1_examples_Makefile.patch to run a clean distclean in
+    as10k1.
+  * Added LSB section to ld10k1 init script.
+  * s/Apps/Applications in menus.
+  * Added Homepage header in debian/control.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 30 Oct 2007 17:59:27 +0100
+
+alsa-tools (1.0.14-2) unstable; urgency=low
+
+  [ Elimar Riesebieter ]
+  * Added README.Debian for alsa-firmware-loaders. (closes: 434592)
+  * Managed to load usx2yloader via udev. (closes: #361558, #395371)
+  * Make alsa-firmware-loaders depend on udev and fxload.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 15 Sep 2007 21:58:44 +0200
+
+alsa-tools (1.0.14-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * Added desktopfiles:
+    echomixer.desktop
+    envy24_control.desktop
+    hdspconf.desktop
+    hdspmixer.desktop
+    rmedigicontrol.desktop
+    A menu entry per each: (closes: 422773) Thanks Emmet Hikory.
+  * Prepared to use quilt as the patch manager.
+  * Removed 01_config.dpatch. Hardcoded in debian/rules.
+
+  [ Jordi Mallach ]
+  * debian/control: add XS-Vcs-Browser and XS-Vcs-Svn headers.
+  * debian/*.desktop: Small changes to Comments.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 09 Jun 2007 21:27:03 +0200
+
+alsa-tools (1.0.14~rc3-2) experimental; urgency=low
+
+  [ Jordi Mallach ]
+  * debian/control: revert undocumented change to put alsa-firmware-loaders
+    back in contrib/sound.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 17 Apr 2007 12:18:54 +0200
+
+alsa-tools (1.0.14~rc3-1) experimental; urgency=low
+
+  [ Elimar Riesebieter ]
+  * New upstream-release candidate
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 13 Apr 2007 02:54:33 +0200
+
+alsa-tools (1.0.14~rc1-1) experimental; urgency=low
+
+  * New upstream release candidate.
+
+  [ Elimar Riesebieter ]
+  * Added XS-X-Vcs-Svn field in control.
+  * Added arch armel to all packages. (closes: 408772)
+
+ -- Elimar Riesebieter <riesebie@lxtec.de>  Sun, 15 Oct 2006 17:08:18 +0200
+
+alsa-tools (1.0.13-1) unstable; urgency=low
+
+  * New upstream release
+
+  [ Elimar Riesebieter ]
+  * Switched to debhelper 5
+    - debian/liblo10k1-dev.install: removed debian/tmp/usr/lib/pkgconfig/*
+    - debian/ld10k1.install: removed debian/tmp/etc/ld10k1/*
+
+ -- Jordi Mallach <jordi@debian.org>  Tue,  3 Oct 2006 20:03:23 +0200
+
+alsa-tools (1.0.12-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Elimar Riesebieter ]
+  * debian/control: bump Standards-Version to 3.7.2, bump Build-Depends to
+    libasound2-dev (>= 1.0.12).
+  * Added myself to "Uploaders:".
+  * Don't let changelogs be links, removed liblo10k1-dev.links and adjusted
+    rules. This will satisfy lintian ;)
+
+ -- Jordi Mallach <jordi@debian.org>  Wed,  6 Sep 2006 20:30:30 +0200
+
+alsa-tools (1.0.11-1) unstable; urgency=low
+
+  * New upstream release
+
+  [ Mikael Magnusson ]
+  * ld10k1: Disable the daemon by default. (Closes: #344777 ld10k1:
+    doesn't work well on startup to restore soundcard to a good state)
+
+  [ Jordi Mallach ]
+  * debian/control: Switch to GTK+2.0, all GTK tools can build with it now,
+    and do it by default.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 23 Apr 2006 17:45:10 +0200
+
+alsa-tools (1.0.10+1.0.11rc2-1) experimental; urgency=low
+
+  * New upstream release candidate
+
+  [ Mikael Magnusson ]
+  * Regenerate man pages with stylesheets from docbook-xsl-1.69.1
+    in order to solve problems with trademark characters
+
+  [ Thomas Hood ]
+  * Correct license text quotations in the "copyright" files
+  * /etc/init.d/ld10k1: Use a more standard PATH
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 27 Jan 2006 11:14:09 +0100
+
+alsa-tools (1.0.10-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 22 Nov 2005 23:46:53 +0100
+
+alsa-tools (1.0.9+1.0.10rc2-1) experimental; urgency=low
+
+  * New upstream release candidate
+  * Thomas Hood
+    - debian/control: s/Architecture: any/Architecture: <Linux arches>/
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 28 Oct 2005 13:36:47 +0200
+
+alsa-tools (1.0.9+1.0.10rc1-1) experimental; urgency=low
+
+  * New upstream release candidate
+    - Closes: #323331 (ld10k1 not 64bit clean)
+      Thanks to Zephaniah E. Hull.
+  * Jordi Mallach:
+    - debian/control: fix formatting of descriptions, so aptitude displays
+      them correctly.
+    - debian/alsa-tools.copyright, debian/alsa-tools-gui.copyright: group
+      GPL and LGPL copyright notices to avoid duplicating the same blurb
+      over and over. Thanks to Joerg Jaspert for the suggestion.
+  * Thomas Hood
+    - Update upstream changelog
+    - Use newfangled (>= 3.0-2) lsb-base init functions and accordingly...
+    - Depend on new (>= 3.0-3) version of lsb-base
+    - Build-Depend on new libasound2-dev
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 19 Sep 2005 21:35:50 +0200
+
+alsa-tools (1.0.9-1) experimental; urgency=low
+
+  * Upload to Debian  (Closes: #209012)
+  * Mikael Magnusson
+    - New upstream release
+    - Remove patches applied upstream
+    - Add copyright file for each binary package
+    - Eliminate EMU10K1.conf diversion; put modified EMU10K1.conf
+      in examples/
+  * Thomas Hood
+    - Revise ld10k1 initscript, hopefully not breaking it in the process
+    - Tweak descriptions and copyright files
+    - Add upstream change log
+    - In liblo10k1-dev include symlinks to change logs in liblo10k1-0
+      instead of copies
+    - Bump Standards-Version to 3.6.2.1; no changes required
+  * Jordi Mallach
+    - Build-Depend on libqt3-mt-dev >= 3:3.3.4-4 for the C++ ABI
+      transition
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 18 Jul 2005 12:39:07 +0200
+
+alsa-tools (1.0.8+1.0.9rc3-1) experimental; urgency=low
+
+  * New upstream release
+  * Added ld10k1, liblo10k1-0, liblo10k1-dev and qlo10k1 binary packages
+  * Fixed CFLAGS etc. in ld10k1 and qlo10k1 configure and makefiles
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Mon, 16 May 2005 14:50:13 +0200
+
+alsa-tools (1.0.8-4) experimental; urgency=low
+
+  * Added ac3dec and as10k1 manual pages
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Mon, 21 Feb 2005 23:35:49 +0100
+
+alsa-tools (1.0.8-3) experimental; urgency=low
+
+  * Moved firmware loaders depending on non-free firmwares to
+    alsa-firmware-loaders in contrib/sound.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Tue,  1 Feb 2005 17:05:06 +0100
+
+alsa-tools (1.0.8-2) experimental; urgency=low
+
+  * Added pcxhrloader and echomixer to package descriptions.
+  * Added echomixer to menu.
+  * Added pcxhrloader and echomixer to copyrights.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Wed, 26 Jan 2005 16:14:26 +0100
+
+alsa-tools (1.0.8-1) experimental; urgency=low
+
+  * New upstream release
+  * Added pcxhrloader to alsa-tools.
+  * Added echomixer to alsa-tools-gui.
+  * Moved the program documentation to subdirectories.
+  * Added AUTHORS files to documentation.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Sun, 23 Jan 2005 18:02:09 +0100
+
+alsa-tools (1.0.7-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Wed, 24 Nov 2004 23:52:11 +0100
+
+alsa-tools (1.0.6-2) experimental; urgency=low
+
+  * Building two binary packages alsa-tools and alsa-tools-gui.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Sat,  2 Oct 2004 22:22:31 +0200
+
+alsa-tools (1.0.6-1) experimental; urgency=low
+
+  * New upstream release
+  * Removed ac3dec samplerate patch, included upstream.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Wed, 29 Sep 2004 01:14:11 +0200
+
+alsa-tools (1.0.5-3) experimental; urgency=low
+
+  * Added binary package ac3dec.
+  * Fixed depends.
+  * Removed as10k1 emu10k1 files from binary package.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Thu,  2 Sep 2004 18:34:25 +0200
+
+alsa-tools (1.0.5-2) experimental; urgency=low
+
+  * Using dpatch.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Mon, 28 Jun 2004 20:54:29 +0200
+
+alsa-tools (1.0.5-1mikma) experimental; urgency=low
+
+  * Initial Release.
+
+ -- Mikael Magnusson <mikma@users.sourceforge.net>  Mon, 21 Jun 2004 18:53:48 +0200
